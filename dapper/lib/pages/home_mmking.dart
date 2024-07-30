@@ -1,3 +1,4 @@
+import 'package:dapper/pages/button_redirect.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -5,6 +6,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: ElevatedButton(onPressed: (){},child: const Text('string'),),);
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return const ButtonPage();
+              },
+            ),
+          );
+        },
+        child: const Text('A button label here'),
+      ),
+    );
   }
 }
