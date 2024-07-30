@@ -1,3 +1,5 @@
+import 'package:dapper/pages/chat_list.dart';
+import 'package:dapper/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dapper/pages/home_mmking.dart';
 
@@ -33,6 +35,11 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
+  List<Widget> pages = const [
+    HomePage(),
+    ProfilePage(),
+    ChatPage()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +53,7 @@ class _RootPageState extends State<RootPage> {
         ),
         centerTitle: true,
       ),
-      body: const HomePage(),
+      body: pages[currentPage],
       bottomNavigationBar: NavigationBar(
         destinations: const[
           NavigationDestination(icon: Icon(Icons.chat), label: 'Chat'),
